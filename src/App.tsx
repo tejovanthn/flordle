@@ -20,6 +20,7 @@ export default function App() {
       <BoxGrid guesses={state.guesses} />
       <Keyboard dispatch={dispatch} keys={state.keys} />
       <EndModal isOpen={gameEnd} />
+      <footer>Made with ❤️ by <a href="https://tejovanthn.com/now">Tj</a></footer>
     </div>
   );
 }
