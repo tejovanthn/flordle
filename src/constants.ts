@@ -1,7 +1,7 @@
 export const GUESSES = 6;
 export const LENGTH = 5;
 export const TIME = 2 * 60 * 60 * 1000;
-export const WEBSITE = "https://x4f6gn.csb.app/"
+export const WEBSITE = "https://flordle.xyz/"
 export const KEYS = [
   "seedling",
   "evergreen_tree",
