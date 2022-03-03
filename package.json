@@ -1,0 +1,35 @@
+{
+  "name": "flordle",
+  "version": "1.0.0",
+  "description": "wordle, but with flowers",
+  "keywords": [
+    "wordle",
+    "flowers"
+  ],
+  "license": "MIT",
+  "main": "src/index.tsx",
+  "dependencies": {
+    "alea": "1.0.1",
+    "emoji-dictionary": "1.0.11",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-scripts": "5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.39",
+    "@types/react-dom": "17.0.13",
+    "typescript": "4.6.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
