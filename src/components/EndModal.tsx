@@ -5,6 +5,7 @@ import { getEmojiGrid } from "../utils/getEmojoGrid";
 import Modal, { IModal } from "./Modal";
 import { WEBSITE } from "../constants";
 import { getNow } from "../utils/getNow";
+import { log } from "../firebase";
 
 const EndModal = ({ isOpen }:Pick<IModal, "isOpen">) => {
   const [isClosed, setIsClosed] = React.useState(false);
@@ -24,7 +25,10 @@ ${emojiGrid}
 Make your flowerbed at: ${WEBSITE}
 `
         )
-        .then(() => setCopied(true));
+        .then(() => {
+          setCopied(true)
+          log("share-clicked",{emojiGrid})
+        });
     }
   };
 

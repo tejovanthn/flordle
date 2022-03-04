@@ -121,6 +121,7 @@ const gameReducer = (state: IState, action: IAction) => {
       if (state.game === GameState.END) {
         return state;
       }
+      log("clear",{})
 
       return {
         ...state,
@@ -135,7 +136,6 @@ const gameReducer = (state: IState, action: IAction) => {
       if (state.game === GameState.END) {
         return state;
       }
-      log("check", {})
       if (
         state.guesses[state.guessNumber].some(
           (guess) => guess.letter === "desert"
@@ -166,6 +166,7 @@ const gameReducer = (state: IState, action: IAction) => {
         }
         return guess;
       });
+      log("check", {guess:currentGuess.map(g => g.letter).join('')})
 
       const guessNumber = state.guessNumber + 1;
 
