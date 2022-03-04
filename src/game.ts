@@ -1,6 +1,8 @@
 import { GUESSES, KEYS, LENGTH } from "./constants";
 import alea from "alea";
 import { getNow } from "./utils/getNow";
+import { log } from "./firebase";
+
 
 const makeAnswers = () => {
   const flowerdleRNG = alea(getNow());
@@ -75,12 +77,14 @@ export const initialState: IState = {
 const gameReducer = (state: IState, action: IAction) => {
   switch (action.type) {
     case Actions.INIT: {
-      console.log(makeAnswers());
       const key = `${getNow()}`;
       const oldState = localStorage.getItem(key);
       if (oldState) {
+        log("re-init", {key})
         return JSON.parse(oldState);
       }
+      console.log(makeAnswers());
+      log("game-start", {key})
       return {
         ...state,
         game: GameState.RUNNING,
@@ -131,7 +135,7 @@ const gameReducer = (state: IState, action: IAction) => {
       if (state.game === GameState.END) {
         return state;
       }
-
+      log("check", {})
       if (
         state.guesses[state.guessNumber].some(
           (guess) => guess.letter === "desert"
@@ -168,6 +172,9 @@ const gameReducer = (state: IState, action: IAction) => {
       const gameStopped =
         currentGuess.every((guess) => guess.background === "bull") ||
         guessNumber >= GUESSES;
+      if(gameStopped) {
+        log("game-end", {})
+      }
 
       return {
         ...state,
