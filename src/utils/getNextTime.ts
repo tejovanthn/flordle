@@ -10,21 +10,15 @@ export const getNextTime = () => {
 
   let diffMillis = nextHour - now;
 
-  let timeString = "";
+  const rtf = new Intl.RelativeTimeFormat("en", {numeric:"auto"})
+
   if (diffMillis > HOUR) {
-    const hours = Math.floor(diffMillis / HOUR);
-    timeString += `${hours}h`;
-    diffMillis = diffMillis - hours * HOUR;
+    return rtf.format(Math.floor(diffMillis/HOUR), "hour")
   }
   if (diffMillis > MINUTE) {
-    const minutes = Math.floor(diffMillis / MINUTE);
-    timeString += ` ${minutes}m`;
-    diffMillis = diffMillis - minutes * MINUTE;
+    return rtf.format(Math.floor(diffMillis/MINUTE), "minute")
   }
   if (diffMillis > SECOND) {
-    const seconds = Math.floor(diffMillis / SECOND);
-    timeString += ` ${seconds}s`;
-    diffMillis = diffMillis - seconds * SECOND;
+    return rtf.format(Math.floor(diffMillis/SECOND), "second")
   }
-  return timeString + ".";
 };

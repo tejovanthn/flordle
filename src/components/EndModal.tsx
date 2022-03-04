@@ -42,7 +42,7 @@ Make your flowerbed at: ${WEBSITE}
   return (
     <Modal isOpen={isOpen && !isClosed} onClose={() => setIsClosed(true)}>
       <div>
-        <div>Next flowerbed in {nextTime}</div>
+        <div>Next flowerbed {nextTime}.</div>
 
         <button onClick={() => handleClick()}>
           {copied ? "Copied!" : "Share"}
